@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-// Shared SVG pieces: the cursor's hatch fill, a static "rough" filter that turns
-// straight CSS borders into wobbly pen lines, and a "boil" filter whose noise
+// Shared SVG pieces: the cursor's hatch fill, a static "rough" filter that bends
+// straight CSS borders into gently wavy pen lines, and a "boil" filter whose noise
 // changes a few times a second, like hand-drawn animation.
 export default function SvgDefs() {
   const noise = useRef<SVGFETurbulenceElement>(null);
@@ -16,7 +16,7 @@ export default function SvgDefs() {
     const id = window.setInterval(() => {
       seed = (seed % 4) + 1;
       noise.current?.setAttribute("seed", String(seed));
-    }, 140);
+    }, 180);
     return () => window.clearInterval(id);
   }, []);
 
@@ -27,12 +27,14 @@ export default function SvgDefs() {
           <line x1="0" y1="0" x2="0" y2="7" strokeWidth="3.4" style={{ stroke: "var(--cursor-fill)" }} />
         </pattern>
         <filter id="boil" x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence ref={noise} type="fractalNoise" baseFrequency="0.045" numOctaves={2} seed="1" />
-          <feDisplacementMap in="SourceGraphic" scale="4" />
+          <feTurbulence ref={noise} type="fractalNoise" baseFrequency="0.03" numOctaves={1} seed="1" />
+          <feDisplacementMap in="SourceGraphic" scale="2.5" />
         </filter>
-        <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves={3} seed="3" />
-          <feDisplacementMap in="SourceGraphic" scale="3.5" />
+        <filter id="rough" x="-10%" y="-10%" width="120%" height="120%" colorInterpolationFilters="sRGB">
+          {/* Low-frequency noise bends straight edges into long, gentle waves,
+              like a steady hand drawing a line, without any jagged noise. */}
+          <feTurbulence type="fractalNoise" baseFrequency="0.009" numOctaves={1} seed="3" stitchTiles="stitch" />
+          <feDisplacementMap in="SourceGraphic" scale="3" />
         </filter>
       </defs>
     </svg>

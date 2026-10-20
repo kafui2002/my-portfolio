@@ -53,13 +53,13 @@ Fluid scale (`--step--1` to `--step-4`): 0.84 → 0.92rem, 1 → 1.1rem, 1.25 �
 ## Shape and doodle vocabulary
 
 - **Wobbly radii.** Three hand-drawn border-radius tokens: `--wobble-a`, `--wobble-b`, `--wobble-c`. Rotate them across sibling cards so no two look stamped from the same mould.
-- **Rough filter** (`#rough`): a static SVG displacement that turns straight CSS borders into wobbly pen lines. Used on every card, button, field, chip, meter, timeline stop and the progress squiggle.
+- **Rough filter** (`#rough`): a static, low-frequency SVG displacement (base frequency 0.009, scale 3) that bends straight CSS borders into long, gentle waves, like a steady hand drawing a line. It is applied to outlines only (cards, buttons, fields, chips, meters), never to fills, and is kept subtle on purpose: stronger or higher-frequency noise reads as a glitch.
 - **Ink edge** (`.inked`): add this class to any element to give it a rough outline. Tune with `--edge` (colour), `--edge-w` (width) and `--edge-style` (solid or dashed).
 - **Sketch card** (`.sketch`): card face with a rough 2.4px ink border, and a pastel shade layer offset 8px/9px behind it. On hover the card lifts 5px and tilts −0.5°, and the shade slides out to 13px/15px.
 - **Squiggle underline**: drawn under each section heading with an animated stroke.
 - **Highlighter** (`Mark`): a pastel stroke that swipes in behind one or two key words per heading.
 - **Doodles**: stars, waves, rings, sparks and swirls in pastel strokes (2.6px, round caps) that drift at different speeds on scroll.
-- **Boil filter** (`#boil`): SVG turbulence with a seed that changes every 140ms, so the logo and cursor shimmer like hand-drawn animation.
+- **Boil filter** (`#boil`): gentle SVG turbulence with a seed that changes every 180ms, used only on the logo and cursor so they shimmer slightly like hand-drawn animation.
 - **Strokes**: 2–3px, round caps and joins, always `--ink` or a pastel.
 - **Scrapbook polaroids** (hero, `Polaroids`): up to five hobby cards from `hobbies` in `lib/content.ts`. Each card has an off-white frame (`--polaroid`, `#fffdf8` light / `#ece4f0` dark, with `--polaroid-ink` text), a rough ink edge, a pastel photo square with crayon hatching, a striped washi-tape strip at the top and a Caveat caption. The photo square shows a hand-drawn doodle (camera, music, plant, book, game, bike, coffee or brush) until you add a real photo with `image`. The cards sit in fixed tilted slots, drop in one by one with a spring, and lift and straighten on hover. With a mouse or trackpad you can drag them anywhere on the page, even over other sections, and they stay where you drop them. The card you grab moves to the top, and a "Tidy up photos" button appears that pins them all back in place. On touch screens a tap brings a card forward, so swiping still scrolls the page. The hero has `z-index: 5` so dragged photos float above later sections.
 
@@ -68,7 +68,7 @@ Fluid scale (`--step--1` to `--step-4`): 0.84 → 0.92rem, 1 → 1.1rem, 1.25 �
 There is one button style (`.btn`, component `DoodleButton`), used for every button and button-like link: primary actions, social links, filters, the theme toggle and back-to-top.
 
 - **Face**: `--btn-fill` (pink) with diagonal crayon hatching drawn over it.
-- **Edge**: a 2.5px ink outline through the rough filter. On hover it switches to the boil filter, so the outline jitters like it is being redrawn.
+- **Edge**: a 2.5px ink outline through the rough filter.
 - **Shadow**: a hard ink shadow offset 4px. Hover lifts the button 2px, tilts it −1.2° and grows the shadow to 6px. Press pushes it down 3px and flattens the shadow to 1px.
 - **Burst**: pressing sends six little pen strokes out from the touch point. Phones also get a short vibration.
 - **Selected**: a pressed toggle (`aria-pressed="true"`) stays pushed down with a butter face. The active project filter also gets a burgundy pen loop drawn around it, which slides to the next chip.
@@ -102,7 +102,7 @@ Patterns:
 | Back-to-top ring | Bottom right | Appears after 60% of a screen. A round doodle button with a dotted track ring around it, centred on the button, that fills with burgundy as you scroll. The button scales on hover instead of tilting, so the ring stays aligned. |
 | Active section | Nav | Rough-edged pastel pill slides to the current section, in that section's colour |
 | Press | All buttons | Push down and flatten the shadow, pen-stroke burst, short vibration on phones |
-| Hover | Buttons, cards, chips | Lift and tilt, outline starts to boil, card shade slides out |
+| Hover | Buttons, cards, chips | Lift and tilt, card shade slides out |
 | Focus | Everything focusable | 2.5px dashed burgundy outline with 4px offset |
 | Filter state | Project chips | Butter face, pushed down, pen loop around it, `aria-pressed` |
 | Form fields | Contact | Rough ink outline; turns green with a drawn tick when valid; thicker red outline, shake and a specific message when not |
