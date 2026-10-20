@@ -39,7 +39,7 @@ export default function Hero() {
         <motion.div variants={intro} initial={reduce ? false : "hidden"} animate="show">
           <motion.span className="hello" variants={item}>hi there, I&apos;m</motion.span>
           <motion.h1 variants={item}>
-            {profile.name} <span className="name-note" aria-hidden="true">← your name here</span>
+            {profile.name}
           </motion.h1>
           <motion.p className="roles" variants={item}>
             <span>I&apos;m a</span>

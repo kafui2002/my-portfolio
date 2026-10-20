@@ -28,7 +28,7 @@ export default function Home() {
           </main>
           <footer>
             <div className="wrap foot">
-              <span>© {new Date().getFullYear()} {profile.name}. Drawn by hand, trained by gradient descent.</span>
+              <span>© {new Date().getFullYear()} {profile.name}. Doodled by hand, debugged with patience.</span>
               <span className="hand" style={{ fontSize: "1.3rem" }}>thanks for scrolling!</span>
             </div>
           </footer>

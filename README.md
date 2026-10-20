@@ -12,7 +12,7 @@ npm run build   # writes a static site to out/ that any host can serve
 
 ## Make it yours
 
-All text, projects, skills, timeline entries and links are in `lib/content.ts`. Everything there is placeholder content.
+All text, projects, skills, timeline entries, hobbies and links are in `lib/content.ts`. To put a real photo on a hobby polaroid, drop it in `public/hobbies/` and set `image` on that hobby.
 
 The contact form validates input but does not send anything yet. Hook it up to a form service or an API route in `components/Contact.tsx` (look for "Connect a form service").
 
@@ -20,4 +20,4 @@ The contact form validates input but does not send anything yet. Hook it up to a
 
 - `app/globals.css`: colour, type, shape tokens and component styles
 - `lib/motion.ts`: shared easing and spring presets
-- `components/`: one file per piece (nav, cursor, glass button, hero, sections, contact, toast)
+- `components/`: one file per piece (nav, cursor, doodle button, hero, polaroids, sections, contact, toast)

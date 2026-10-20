@@ -6,50 +6,51 @@ import { hobbies, type Hobby } from "@/lib/content";
 import DoodleButton from "./DoodleButton";
 
 // Where each photo lands on the page (percent of the scrapbook area) and how
-// it is tilted. Five slots; fewer hobbies just use the first few.
+// it is tilted. Six slots in two loose rows; fewer hobbies use the first few.
 const SLOTS = [
-  { left: 1, top: 5, rot: -7 },
-  { left: 31, top: 0, rot: 4 },
-  { left: 61, top: 6, rot: -3 },
-  { left: 15, top: 50, rot: 5 },
-  { left: 47, top: 49, rot: -5 },
+  { left: 0, top: 4, rot: -7 },
+  { left: 33, top: 0, rot: 4 },
+  { left: 65, top: 6, rot: -3 },
+  { left: 2, top: 53, rot: 5 },
+  { left: 34, top: 50, rot: -4 },
+  { left: 65, top: 55, rot: 6 },
 ];
-const TINTS = ["var(--pink)", "var(--blue)", "var(--mint)", "var(--butter)", "var(--lilac)"];
+const TINTS = ["var(--pink)", "var(--blue)", "var(--mint)", "var(--butter)", "var(--lilac)", "var(--purple)"];
 
 const DOODLES: Record<Hobby["doodle"], string[]> = {
-  camera: [
-    "M18 34 h64 a6 6 0 0 1 6 6 v34 a6 6 0 0 1 -6 6 h-64 a6 6 0 0 1 -6 -6 v-34 a6 6 0 0 1 6 -6 Z",
-    "M36 34 l5 -9 h18 l5 9",
-    "M50 44 a13 13 0 1 0 0.1 0",
-    "M50 51 a6 6 0 1 0 0.1 0",
-    "M71 42 h8",
-  ],
-  music: ["M38 70 V30 L72 22 V62", "M38 40 L72 32", "M31 64 a7 7 0 1 0 0.1 0", "M65 56 a7 7 0 1 0 0.1 0"],
-  plant: [
-    "M34 62 h32 l-5 24 h-22 Z",
-    "M31 62 h38",
-    "M50 62 V34",
-    "M50 48 C 38 46 31 36 33 27 C 44 29 50 37 50 48",
-    "M50 41 C 60 37 68 27 66 18 C 56 20 50 29 50 41",
-  ],
-  book: [
-    "M50 32 C 40 26 26 26 16 30 V76 C 26 72 40 72 50 78 C 60 72 74 72 84 76 V30 C 74 26 60 26 50 32 Z",
-    "M50 32 V78",
-    "M24 42 h18 M24 50 h16 M24 58 h17 M58 42 h18 M58 50 h14 M58 58 h16",
-  ],
   game: [
     "M30 40 h40 c12 0 18 10 18 22 c0 10 -8 14 -14 8 l-8 -8 h-32 l-8 8 c-6 6 -14 2 -14 -8 c0 -12 6 -22 18 -22 Z",
     "M32 47 v12 M26 53 h12",
     "M66 47 a3 3 0 1 0 0.1 0",
     "M73 54 a3 3 0 1 0 0.1 0",
   ],
-  bike: ["M28 50 a14 14 0 1 0 0.1 0", "M72 50 a14 14 0 1 0 0.1 0", "M28 64 L44 40 H62 L72 64 M44 40 L54 64 L62 40", "M39 35 h11 M60 33 l4 7"],
-  coffee: [
-    "M28 44 h40 v20 a14 14 0 0 1 -14 14 h-12 a14 14 0 0 1 -14 -14 Z",
-    "M68 50 c11 0 11 14 0 14",
-    "M40 36 c-4 -6 4 -10 0 -16 M53 36 c-4 -6 4 -10 0 -16",
+  pencil: [
+    "M26 74 L66 34 l10 10 L36 84 Z",
+    "M26 74 l-4 14 l14 -4",
+    "M60 40 l10 10",
+    "M18 30 c8 -8 16 4 24 -4 s 14 2 18 -2",
   ],
-  brush: ["M34 66 L74 26 l6 6 L40 72", "M34 66 c-6 -2 -12 2 -13 8 c-1 4 -4 6 -6 7 c8 2 18 0 22 -5 c2 -3 2 -6 -3 -10 Z"],
+  yarn: [
+    "M48 26 a24 24 0 1 0 0.1 0",
+    "M30 36 c10 6 26 6 36 -2 M26 52 c14 8 32 8 46 0 M32 68 c10 4 24 4 34 -2",
+    "M40 28 c-6 14 -6 30 2 44",
+    "M70 66 c8 6 14 10 20 8",
+    "M78 18 L58 46 c-2 3 -6 1 -4 -2",
+  ],
+  needle: [
+    "M24 78 L74 22",
+    "M70 26 a3 5 42 1 0 0.1 0",
+    "M72 24 c10 4 10 18 -2 24 c-14 6 -10 24 6 28 c10 2 14 -4 12 -10",
+    "M24 78 l-4 6",
+  ],
+  swim: [
+    "M14 62 c8 -6 14 -6 22 0 s 14 6 22 0 s 14 -6 22 0 s 10 4 12 2",
+    "M14 76 c8 -6 14 -6 22 0 s 14 6 22 0 s 14 -6 22 0 s 10 4 12 2",
+    "M64 38 a7 7 0 1 0 0.1 0",
+    "M28 54 c8 -10 18 -14 30 -12 l10 6",
+    "M40 50 l-12 -12",
+  ],
+  bike: ["M28 50 a14 14 0 1 0 0.1 0", "M72 50 a14 14 0 1 0 0.1 0", "M28 64 L44 40 H62 L72 64 M44 40 L54 64 L62 40", "M39 35 h11 M60 33 l4 7"],
 };
 
 function Doodle({ kind }: { kind: Hobby["doodle"] }) {
@@ -74,7 +75,7 @@ function Doodle({ kind }: { kind: Hobby["doodle"] }) {
 export default function Polaroids() {
   const reduce = useReducedMotion();
   const page = useRef<HTMLElement | null>(null);
-  const items = hobbies.slice(0, 5);
+  const items = hobbies.slice(0, 6);
   const [order, setOrder] = useState(items.map((_, i) => i));
   const toFront = (i: number) => setOrder((o) => [...o.filter((x) => x !== i), i]);
   const [moved, setMoved] = useState(false);

@@ -282,7 +282,6 @@ section { position: relative; padding-block: clamp(72px, 10vw, 136px); scroll-ma
 @media (max-width: 880px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
 .hello { font-family: var(--f-hand); font-size: var(--step-2); color: var(--accent); display: inline-block; transform: rotate(-3deg); }
 .hero h1 { font-size: var(--step-4); font-weight: 800; margin-top: 6px; }
-.name-note { font-family: var(--f-hand); font-size: 1.25rem; color: var(--ink-soft); font-weight: 500; white-space: nowrap; vertical-align: middle; display: inline-block; transform: rotate(-4deg); }
 .roles { margin-top: 18px; font-family: var(--f-display); font-size: var(--step-2); font-weight: 600; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3em; }
 .role-swap { position: relative; display: inline-grid; color: var(--accent); min-width: 0; }
 .role-swap > span { grid-area: 1 / 1; align-self: start; }
@@ -296,9 +295,9 @@ section { position: relative; padding-block: clamp(72px, 10vw, 136px); scroll-ma
 
 /* ---------- Scrapbook polaroids ---------- */
 .scrapbook { margin: 0; width: 100%; max-width: 540px; justify-self: center; display: grid; gap: 6px; }
-.scrapbook-area { position: relative; width: 100%; aspect-ratio: 1 / 1.04; }
+.scrapbook-area { position: relative; width: 100%; aspect-ratio: 1 / 1.14; }
 .scrapbook-area ul { list-style: none; margin: 0; padding: 0; position: absolute; inset: 0; }
-.polaroid-slot { position: absolute; width: 38%; cursor: grab; user-select: none; -webkit-user-select: none; border-radius: 8px; }
+.polaroid-slot { position: absolute; width: 34%; cursor: grab; user-select: none; -webkit-user-select: none; border-radius: 8px; }
 .has-cursor .polaroid-slot { cursor: none; }
 .polaroid-slot:focus-visible { outline-offset: 6px; }
 .polaroid {

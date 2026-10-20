@@ -110,8 +110,8 @@ export default function Contact() {
           <span className="sketch-shade" aria-hidden="true" />
           <div className="contact-copy">
             <span className="eyebrow">contact</span>
-            <h2>Let&apos;s build something <Mark>clever</Mark></h2>
-            <p>Hiring, collaborating, or just want to talk about a paper? Send a note or copy my email.</p>
+            <h2>Let&apos;s make something <Mark>together</Mark></h2>
+            <p>Hiring, building something, or just want to swap game recommendations? My inbox is open, so drop me a note or copy my email.</p>
             <div className="email-row">
               <span className="email inked" id="email">{profile.email}</span>
               <DoodleButton className="chip-btn" onClick={copy}>Copy email</DoodleButton>

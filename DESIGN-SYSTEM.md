@@ -42,7 +42,7 @@ Every colour is a CSS custom property. Light values sit on `:root`; dark values 
 | Display | **Shantell Sans** (`INFM` 100, `BNCE` 35) | Headings, logo, roles, buttons. Full informality and some bounce give the loose marker look. |
 | Body | **Shantell Sans** (`INFM` 45, `BNCE` 0) | Paragraphs and labels. Same marker hand, steadier so long text stays easy to read. |
 | Label | **Patrick Hand** | Eyebrows, metrics, dates, email, code-ish labels such as `model.fit()`. Hand-printed small caps feel. |
-| Hand | **Caveat** | Margin notes and annotations ("forward pass", "your name here"). Use sparingly. |
+| Hand | **Caveat** | Margin notes, polaroid captions and annotations ("drag the photos anywhere"). Use sparingly. |
 
 Every face is hand-drawn; there is no clean sans or monospace on the page.
 
@@ -61,7 +61,7 @@ Fluid scale (`--step--1` to `--step-4`): 0.84 → 0.92rem, 1 → 1.1rem, 1.25 �
 - **Doodles**: stars, waves, rings, sparks and swirls in pastel strokes (2.6px, round caps) that drift at different speeds on scroll.
 - **Boil filter** (`#boil`): gentle SVG turbulence with a seed that changes every 180ms, used only on the logo and cursor so they shimmer slightly like hand-drawn animation.
 - **Strokes**: 2–3px, round caps and joins, always `--ink` or a pastel.
-- **Scrapbook polaroids** (hero, `Polaroids`): up to five hobby cards from `hobbies` in `lib/content.ts`. Each card has an off-white frame (`--polaroid`, `#fffdf8` light / `#ece4f0` dark, with `--polaroid-ink` text), a rough ink edge, a pastel photo square with crayon hatching, a striped washi-tape strip at the top and a Caveat caption. The photo square shows a hand-drawn doodle (camera, music, plant, book, game, bike, coffee or brush) until you add a real photo with `image`. The cards sit in fixed tilted slots, drop in one by one with a spring, and lift and straighten on hover. With a mouse or trackpad you can drag them anywhere on the page, even over other sections, and they stay where you drop them. The card you grab moves to the top, and a "Tidy up photos" button appears that pins them all back in place. On touch screens a tap brings a card forward, so swiping still scrolls the page. The hero has `z-index: 5` so dragged photos float above later sections.
+- **Scrapbook polaroids** (hero, `Polaroids`): up to six hobby cards from `hobbies` in `lib/content.ts`. Each card has an off-white frame (`--polaroid`, `#fffdf8` light / `#ece4f0` dark, with `--polaroid-ink` text), a rough ink edge, a pastel photo square with crayon hatching, a striped washi-tape strip at the top and a Caveat caption. The photo square shows a hand-drawn doodle (game controller, pencil, yarn and hook, needle and thread, swimmer or bike) until you add a real photo with `image`. The cards sit in two loose rows of three tilted slots, drop in one by one with a spring, and lift and straighten on hover. With a mouse or trackpad you can drag them anywhere on the page, even over other sections, and they stay where you drop them. The card you grab moves to the top, and a "Tidy up photos" button appears that pins them all back in place. On touch screens a tap brings a card forward, so swiping still scrolls the page. The hero has `z-index: 5` so dragged photos float above later sections.
 
 ## Buttons
 

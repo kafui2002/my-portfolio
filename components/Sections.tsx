@@ -21,7 +21,7 @@ export function About() {
   return (
     <section id="about">
       <div className="wrap">
-        <SectionHead eyebrow="about me" before="Half researcher, half" mark="builder" />
+        <SectionHead eyebrow="about me" before={about.headline.before} mark={about.headline.mark} />
         <div className="about-grid">
           <Reveal className="about-copy">
             <p>{about.lead}</p>
@@ -61,7 +61,7 @@ function Art({ kind }: { kind: Project["art"] }) {
           <P d="M30 100 L30 24 M30 100 L270 100" />
           <P cls="a" d="M36 92 C 80 88 100 40 150 38 S 230 30 262 28" />
           <P cls="b" d="M36 96 C 90 94 120 70 160 66 S 230 60 262 58" strokeDasharray="6 7" />
-          <text x="200" y="22">recall@10</text>
+          <text x="226" y="22">error ↓</text>
         </>)}
         {kind === "boxes" && (<>
           <P d="M54 24 h62 a14 14 0 0 1 14 14 v52 a14 14 0 0 1 -14 14 h-62 a14 14 0 0 1 -14 -14 v-52 a14 14 0 0 1 14 -14 Z" />
@@ -88,6 +88,16 @@ function Art({ kind }: { kind: Project["art"] }) {
           <P cls="a" d="M30 80 C 60 34 90 118 120 74 S 180 34 210 80 S 260 108 274 64" />
           <P cls="b" d="M210 61 a9 9 0 1 0 0.1 0" />
         </>)}
+        {kind === "board" && (<>
+          <P d="M44 30 h212 a20 20 0 0 1 20 20 v28 a20 20 0 0 1 -20 20 h-212 a20 20 0 0 1 -20 -20 v-28 a20 20 0 0 1 20 -20 Z" />
+          <P cls="a" d="M60 42 a9 9 0 1 0 0.1 0 M96 42 a9 9 0 1 0 0.1 0 M132 42 a9 9 0 1 0 0.1 0 M168 42 a9 9 0 1 0 0.1 0 M204 42 a9 9 0 1 0 0.1 0 M240 42 a9 9 0 1 0 0.1 0" />
+          <P cls="b" d="M60 68 a9 9 0 1 0 0.1 0 M96 68 a9 9 0 1 0 0.1 0 M132 68 a9 9 0 1 0 0.1 0 M168 68 a9 9 0 1 0 0.1 0 M204 68 a9 9 0 1 0 0.1 0 M240 68 a9 9 0 1 0 0.1 0" />
+        </>)}
+        {kind === "phone" && (<>
+          <P d="M124 14 h52 a10 10 0 0 1 10 10 v84 a10 10 0 0 1 -10 10 h-52 a10 10 0 0 1 -10 -10 v-84 a10 10 0 0 1 10 -10 Z" />
+          <P cls="a" d="M128 34 h44 M128 48 h30 M128 62 h40 M128 76 h24" />
+          <P cls="b" d="M144 104 h12 M60 60 a12 12 0 1 0 0.1 0 M46 92 c4 -12 24 -12 28 0 M240 60 a12 12 0 1 0 0.1 0 M226 92 c4 -12 24 -12 28 0" />
+        </>)}
       </svg>
     </div>
   );
@@ -107,8 +117,8 @@ export function Work() {
         ]}
       />
       <div className="wrap">
-        <SectionHead eyebrow="selected work" before="Things I've" mark="trained and shipped">
-          <p>Sample projects to show the layout. Replace each card with your own work, and keep the metrics: numbers tell a reviewer what changed.</p>
+        <SectionHead eyebrow="selected work" before="Things I've" mark="built and trained">
+          <p>A mix of models, websites and apps, from school projects to things I built just because I wanted them to exist.</p>
         </SectionHead>
 
         <LayoutGroup id="filters">
@@ -159,9 +169,11 @@ export function Work() {
                     {p.metrics.map(([k, v]) => <li className="inked" key={k}>{k} <b>{v}</b></li>)}
                   </ul>
                   <div className="tags">{p.tags.map((t) => <span className="tag inked" key={t}>{t}</span>)}</div>
-                  <div className="project-links">
-                    {p.links.map((l) => <a key={l.label} href={l.href} aria-label={`${l.label} for ${p.title}`}>{l.label}</a>)}
-                  </div>
+                  {p.links.length > 0 && (
+                    <div className="project-links">
+                      {p.links.map((l) => <a key={l.label} href={l.href} aria-label={`${l.label} for ${p.title}`}>{l.label}</a>)}
+                    </div>
+                  )}
                 </motion.article>
               );
             })}
